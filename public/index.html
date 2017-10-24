@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Q&A!</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <script src="main.js"></script>
-</head>
-<body>
-<h1>Q&A!</h1>
-<div id="first">
-    <h2>Cuál es tu nombre?</h2>
-    <form onsubmit="return sendName(this)">
-        <input type="text" id="username" placeholder="Tu Nombre" >
-        <input type="submit" value="Enviar">
-    </form>
-</div>
+  <head>
+      <meta charset="UTF-8">
+      <title>Q&A!</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h1>Q&A!</h1>
+    <div id="first">
+        <h2>Cuál es tu nombre?</h2>
+        <form onsubmit="return sendName(this)">
+            <input type="text" id="username" placeholder="Tu Nombre" >
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
 
-</body>
+    <div class="container" id="steps">
+
+      <div class="stepwizard">
+          <div class="stepwizard-row setup-panel" id="step-buttons">
+            <!-- <div class="stepwizard-step">
+              <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+              <p>Pregunta 1</p>
+            </div>
+            <div class="stepwizard-step">
+              <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+              <p>Pregunta 2</p>
+            </div>
+            <div class="stepwizard-step">
+              <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+              <p>Pregunta 3</p>
+            </div> -->
+          </div>
+        </div>
+
+        <div id="steps-wrap">
+          <!-- <div class="row setup-content" id="step-3">
+            <div class="col-xs-6 col-md-offset-3">
+              <div class="col-md-12">
+                <h3> Step 3</h3>
+                <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+      </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
