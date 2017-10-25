@@ -61,12 +61,13 @@ function getRoomToJoin(id){
 
 function getQuestionsAndPlay(id){
   console.log('response request');
-  request('http://localhost:8080/api/questions', (error, response, questions) => {
+  let port = process.env.PORT || 8080;
+  request('http://localhost:'+port+'/api/questions', (error, response, questions) => {
     console.log(rooms[id].users);
     io.in(id).emit('play', {message: 'Se comienza a jugar.', questions, users: rooms[id].users});
   });
 }
 
-server.listen(8080, () => {
+server.listen(process.env.PORT || 8080, () => {
   console.log('Servidor corriendo en http://localhost:8080');
 });
