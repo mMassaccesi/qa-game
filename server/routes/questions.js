@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 
-async function getQuestions(qq, cb){
+function getQuestions(qq, cb){
   let questions = [];
   Object.keys(qq).map((k) => {
     qq[k].forEach((q) => {
@@ -21,7 +21,7 @@ async function getQuestions(qq, cb){
     })
   });
 
-  let filteredQ = await getRandom(questions, process.env.QUANTITY || 5);
+  let filteredQ = getRandom(questions, process.env.QUANTITY || 5);
   cb(filteredQ);
 }
 
