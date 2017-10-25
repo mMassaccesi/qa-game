@@ -18,10 +18,12 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
 
+  let roomid;
   socket.on('hello', (data) => {
     io.emit('hello', 'Se conectó ' + data);
 
-    let id = getRoomToJoin(socket.id)
+    let id = getRoomToJoin(socket.id);
+    roomid = id;
     let user = {
       id: socket.id,
       name: data
@@ -33,14 +35,16 @@ io.on('connection', (socket) => {
       rooms[socket.id] = {
         users: [user]
       }
-      socket.emit('waiting', {message: 'Esperando oponente.', rooms: rooms});
+      socket.emit('waiting', {message: 'Esperando oponente...', rooms: rooms});
     } else {
       rooms[id].users.push(user);
       getQuestionsAndPlay(id);
     }
-    console.log(rooms)
-
   });
+
+  socket.on('results', (data) => {
+    socket.broadcast.to(roomid).emit('results', data);
+  })
 
 
 });
@@ -58,7 +62,8 @@ function getRoomToJoin(id){
 function getQuestionsAndPlay(id){
   console.log('response request');
   request('http://localhost:8080/api/questions', (error, response, questions) => {
-    io.in(id).emit('play', {message: 'Se comienza a jugar.', questions});
+    console.log(rooms[id].users);
+    io.in(id).emit('play', {message: 'Se comienza a jugar.', questions, users: rooms[id].users});
   });
 }
 

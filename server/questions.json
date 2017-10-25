@@ -68,7 +68,7 @@
     {
       "question": "Si P = M+N, ¿cuál de las siguientes fórmulas es correcta?",
       "options": ["M = P + N", "N = P + M", "M = P – N", "N = P / M"],
-      "answer": ""
+      "answer": "M = P - N"
     },
     {
       "question": "¿Cuánto es la raíz cuadrada de 25386?",

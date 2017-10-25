@@ -7,14 +7,23 @@
       <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h1>Q&A!</h1>
-    <div id="first">
-        <h2>Cuál es tu nombre?</h2>
-        <form onsubmit="return sendName(this)">
-            <input type="text" id="username" placeholder="Tu Nombre" >
-            <input type="submit" value="Enviar">
+    <div class="container">
+      <div id="first" class="col-md-4">
+        <h1>Preguntados</h1>
+        <form onsubmit="return sendName(this)" id="login">
+            <div class="form-group">
+              <label for="email">Cuál es tu nombre?</label>
+              <input type="text" autofocus id="username" placeholder="Tu Nombre" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-default">Enviar</button>
         </form>
+        <br><br>
+        <div class="alert alert-info message"></div>
+        <br><br>
+      </div>
     </div>
+
+    <div class="count"></div>
 
     <div class="container" id="steps">
 
@@ -47,6 +56,8 @@
         </div>
 
       </div>
+
+      <div class="container" id="results"></div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
