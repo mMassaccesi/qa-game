@@ -1,4 +1,4 @@
-let socket = io.connect('http://localhost:8080', { 'forceNew': true });
+let socket = io.connect('https://preguntados.herokuapp.com', { 'forceNew': true });
 let correctCount = 0;
 let index = 1; //Room's user array
 let name;
